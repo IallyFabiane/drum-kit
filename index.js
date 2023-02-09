@@ -7,6 +7,7 @@ button.forEach( (element) => {
 })
 
 function handleClick(event) {
-   alert('i got clicked');
+   let audio = new Audio('./sounds/tom-1.mp3');
+   audio.play();
 }
 
