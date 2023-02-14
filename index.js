@@ -5,12 +5,13 @@ button.forEach( (element) => {
       
       let buttonInnerHTML = event.target.innerHTML; //evento de detecção de qual botão foi clicado
       makeSound(buttonInnerHTML);
-   
+      buttonAnimation(buttonInnerHTML);
    })
 })
 
 document.addEventListener('keypress', (event) => {
    makeSound(event.key); //evento de detecção de qual tecla foi pressionada
+  buttonAnimation(event.key);
 })
 
 
@@ -47,4 +48,12 @@ function makeSound(key) {
       default: console.log(buttonInnerHTML)
          break;
    }
+}
+
+function buttonAnimation(currentKey) {
+   let activeButton = document.querySelector("." + currentKey); //encontramos qual a classe do botão que foi acionado
+   activeButton.classList.add("pressed");
+   setTimeout( () => {
+      activeButton.classList.remove("pressed");
+   }, 300)
 }
